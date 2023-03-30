@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 function App() {
 
   const apiKey = `3802e225b1fcc1ed8f104f47d3bdbef8`;
-  function getMovie () {
+  function getMovieGenre () {
     axios
     // .get(`https://api.themoviedb.org/3/movie/550?api_key=3802e225b1fcc1ed8f104f47d3bdbef8`)
     .get(`https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}&language=en-US`)
@@ -19,7 +19,7 @@ function App() {
   }
 
   useEffect(() => {
-    getMovie();
+    getMovieGenre();
   }, [])
   
 
