@@ -1,24 +1,36 @@
 import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import axios from 'axios';
+import { useEffect } from 'react';
 
 function App() {
+
+  const apiKey = `3802e225b1fcc1ed8f104f47d3bdbef8`;
+  function getMovie () {
+    axios
+    // .get(`https://api.themoviedb.org/3/movie/550?api_key=3802e225b1fcc1ed8f104f47d3bdbef8`)
+    .get(`https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}&language=en-US`)
+    .then((response) => {
+      console.log(response.data)
+    })
+    .catch(err => {
+      console.log(`Error in retrieving movie ${err}`)
+    })
+  }
+
+  useEffect(() => {
+    getMovie();
+  }, [])
+  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+   
+
+    <>
+
+    </>
+
   );
 }
 
