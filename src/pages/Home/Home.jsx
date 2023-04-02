@@ -1,11 +1,17 @@
-import logo from './logo.svg';
-import './App.scss';
+
 import axios from 'axios';
 import { useEffect } from 'react';
 
-function App() {
+import "../Home/Home.scss"
 
-  const apiKey = `3802e225b1fcc1ed8f104f47d3bdbef8`;
+
+
+const Home = () => {
+
+    const apiKey = process.env.REACT_APP_API_KEY;
+
+  console.log(apiKey)
+
   function getMovieGenre () {
     axios
     // .get(`https://api.themoviedb.org/3/movie/550?api_key=3802e225b1fcc1ed8f104f47d3bdbef8`)
@@ -21,17 +27,14 @@ function App() {
   useEffect(() => {
     getMovieGenre();
   }, [])
-  
 
-  return (
+    return (
 
-   
+        <>
 
-    <>
+        </>
 
-    </>
-
-  );
+    );
 }
 
-export default App;
+export default Home;

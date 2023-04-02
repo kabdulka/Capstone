@@ -1,0 +1,60 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+
+.header__nav {
+    padding: 1rem 1rem 1rem 1rem;
+    background-color: aliceblue;
+    // height: 3rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @include tablet {
+        
+    }
+}
+
+.nav {
+
+    @include tablet {
+        height: 5rem;
+
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+        // text-decoration: none;
+        // margin: auto;
+        gap: 2rem;
+        padding-top: 1rem 0rem 1rem 0rem;
+        text-align: center;
+        height: 100%;
+
+        @include tablet {
+            flex-direction: row;
+            align-items: center;
+        }
+
+
+    }
+//nav__item-link
+
+    &__item {
+        border: blue solid 1px;
+    }
+
+    &__item-link {
+        // display: flex;
+        // align-items: center;
+        text-decoration: none;
+        border: 1px red solid;
+        height: 100%;
+        color: black;
+    }
+
+
+}
