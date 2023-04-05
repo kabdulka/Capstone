@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 
 const NewMovies = () => {
 
-
     const apiKey = process.env.REACT_APP_API_KEY;
 
     const [newReleases, setNewReleases] = useState([]);
@@ -30,8 +29,6 @@ const NewMovies = () => {
   
     }
   
-
-
     const getNewMovies = (pages) => {
 
         const allResults = [];
@@ -62,8 +59,6 @@ const NewMovies = () => {
             // returns a promise
             const pageResult = axios.get(url);
             
-            console.log("page results")
-            console.log(pageResult)
             allResults.push(pageResult)
         }
         console.log("All results")
@@ -85,8 +80,6 @@ const NewMovies = () => {
     useEffect(() => {
       
         getNewReleases(3)
-        // getNewMovies(3)
-        // getNewMovies2(4)
        
     }, [])
 
@@ -103,13 +96,13 @@ const NewMovies = () => {
 
                         {
                             newReleases?.map((movie => 
-                                // <li> 
+                             
                                 <Link key={movie.id} className="movie__container-link" to={`/${movie.id}`} >
                                     <li className="movie__container__movie-item">
                                         <img className="movie__container-image" src={"https://image.tmdb.org/t/p/w500/"+movie?.poster_path} />
                                     </li>
                                 </Link>
-                                // </li>    
+                               
                             ))
                         }
                         
