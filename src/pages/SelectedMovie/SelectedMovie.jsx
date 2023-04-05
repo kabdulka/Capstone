@@ -34,7 +34,7 @@ const SelectedMovie = () => {
         <>
             <section className="selected-movie"> 
 
-                <h2> {selectedMovie.title} </h2>
+                <h1 className="selected__movie__title"> {selectedMovie.title} </h1>
 
             </section>
         </>

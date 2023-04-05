@@ -3,12 +3,20 @@
 
 
 .new-movies {
-    display: flex;
-    flex-direction: column;
+    // display: flex;
+    // flex-direction: column;
     padding: 1rem;
+    
+
+    &__list {
+        display: flex;
+        gap: 2rem;
+        overflow-y: hidden;
+        list-style: none;
+    }
 
     &__title {
         color: white;
-        
+
     }
 }
