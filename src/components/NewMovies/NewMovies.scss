@@ -1,0 +1,14 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+
+.new-movies {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+
+    &__title {
+        color: white;
+        
+    }
+}

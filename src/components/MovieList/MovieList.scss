@@ -1,0 +1,21 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.movies__container {
+  
+    padding: 1rem;
+
+
+    @include tablet {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+}
+
+.movies__list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    list-style: none;
+}

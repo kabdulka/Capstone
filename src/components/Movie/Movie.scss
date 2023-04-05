@@ -1,0 +1,81 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+
+.movie__item {
+    // display: flex;
+    padding: 1rem;
+    border: lightgray 1px solid;
+    border-radius: 0.5rem;
+
+    // &-gradient {
+    //     // background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2));
+        
+    // }
+
+    &-background {
+        border: red solid 1px;
+        display: flex;
+        flex-direction: column;
+        height: 300px;
+        position: relative;
+        gap: 2rem;
+    }
+
+    &-main {
+        display: flex;
+        width: 100%;
+        gap: 2rem;
+    }
+    
+    &-poster {
+        width: 5rem;
+        height: 8rem;
+        // border: red solid 1px;
+
+        &__image {
+            // height: 100%;
+            // width: 100%;
+            width: 5rem;
+            height: 8rem;
+        }
+    }
+
+    &-details {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+
+        &__1 {
+            
+        }
+
+        // movie__item-details__2
+        &__2 {
+
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+    }
+
+    &__runtime {
+        border: lightgray 1px solid;
+        background-color: white;
+        padding: 0.25rem;
+        border-radius: 0.25rem;
+    }
+
+    &__genres {
+        color: lightgray;
+    }
+}
+
+.movie__item-poster__image {
+    // height: 100%;
+    //         width: 100%;
+}
+
+
+
+

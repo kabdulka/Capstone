@@ -1,0 +1,26 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+
+.form {
+
+    // display: flex;
+    padding: 1rem;
+    gap: 1rem;
+    align-items: center;
+
+    &__search-movie {
+        border: black 1px solid;
+        border-radius: 0.25rem;
+        padding: 0.5rem 3rem 0.5rem 3rem;
+        background-image: url("../../assets/Icons/search-24px.svg");
+        background-repeat: no-repeat;
+        background-position: 0.5rem;
+        width: 100%;
+    }
+
+    &__back {
+        display: flex;
+
+    }
+}

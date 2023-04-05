@@ -2,12 +2,12 @@ import logo from './logo.svg';
 import './App.scss';
 import axios from 'axios';
 import { useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import { BrowserRouter } from 'react-router-dom';
 import Home from './pages/Home/Home';
 import Header from './components/Header/Header';
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Search from './pages/Search/Search';
+import SelectedMovie from './pages/SelectedMovie/SelectedMovie';
 
 
 function App() {
@@ -20,11 +20,20 @@ function App() {
     <>
 
       <BrowserRouter>
-        <Header />
+      
         <Routes>
           <Route 
             path="/"
             element={<Home />}
+          />
+          <Route 
+            path="/search"
+            element={<Search />}
+          />
+
+          <Route 
+            path="/:movieId"
+            element={<SelectedMovie />}
           />
 
         </Routes>
