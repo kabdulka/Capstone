@@ -80,7 +80,7 @@ const Movie = ({movie}) => {
                         {/* </div> */}
                     </div>
                     <div className="movie__item-details__3">
-                        <p className="movie__item__description"> {selectedMovie.overview.length > 100 ? selectedMovie.overview.substring(0,100) + "..." : selectedMovie.overview}  </p>
+                        <p className="movie__item__description"> {selectedMovie.overview.length > 90 ? selectedMovie.overview.substring(0,90) + "..." + "(click for more)" : selectedMovie.overview}  </p>
                         <button class="movie__item__watch-btn">Watch Now</button>
                     </div>
 
