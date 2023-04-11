@@ -2,25 +2,53 @@
 @use "../../styles/partials/mixins" as *;
 
 
-.form {
+.movie__search {
 
     // display: flex;
     padding: 1rem;
-    gap: 1rem;
-    align-items: center;
+    gap: 2rem;
 
-    &__search-movie {
-        border: black 1px solid;
-        border-radius: 0.25rem;
-        padding: 0.5rem 3rem 0.5rem 3rem;
-        background-image: url("../../assets/Icons/search-24px.svg");
-        background-repeat: no-repeat;
-        background-position: 0.5rem;
-        width: 100%;
-    }
 
-    &__back {
+    &__form {
+
         display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        // align-items: center;
+
+        &-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            width: 100%;
+            // border: blue solid 1px;
+        }
+
+        &-input {
+            // border: red 1px solid;
+            border-radius: 0.25rem;
+            padding: 0.5rem 3rem 0.5rem 3rem;
+            background-image: url("../../assets/Icons/search-24px.svg");
+            background-repeat: no-repeat;
+            background-position: 0.5rem;
+            width: 100%;
+        }
+
+        &-back {
+            display: flex;
+            justify-content: center;
+            // align-items: center;
+            // margin: auto;
+            // margin-top: 1rem;
+            border: yellow solid 1px; 
+    
+        }
 
     }
+
+    &__related-title {
+        color: white;
+    }
+
+
 }

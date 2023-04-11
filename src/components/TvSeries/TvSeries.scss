@@ -2,7 +2,7 @@
 @use "../../styles/partials/mixins" as *;
 
 
-.movie__item {
+.show__item {
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -59,7 +59,7 @@
             
         }
 
-        // movie__item-details__2
+        // show__item-details__2
         &__2 {
 
             display: flex;

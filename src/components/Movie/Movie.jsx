@@ -13,17 +13,18 @@ const Movie = ({movie}) => {
         backgroundImage: `url(https://image.tmdb.org/t/p/w500/${selectedMovie.backdrop_path})`,
         backgroundSize: "cover",
         // background: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2)), url(https://image.tmdb.org/t/p/w500/${selectedMovie.backdrop_path})`,
-        // opacity: "0.5"
+        opacity: "0.7",
+        backgroundRepeat: "no-repeat"
     };
 
 
     const getGenreNames = (genres) => {
         let result = "";
         genres.forEach((genre) => {
-            result += genre.name + ","
+            result += genre.name + ", "
         })
         
-        return result;
+        return result.substring(0, result.length-2);
     }
 
     const getMovieInfo = () => {
@@ -32,8 +33,8 @@ const Movie = ({movie}) => {
         axios
         .get(url)
         .then((response => {
-            console.log(response.data);
-            console.log(response.data.genres);
+            // console.log(response.data);
+            // console.log(response.data.genres);
             setSelectedMovie(response.data)
         }))
         .catch(err => {
@@ -48,10 +49,9 @@ const Movie = ({movie}) => {
 
     return (
 
-        selectedMovie.genres?  
+        selectedMovie.id?  
 
         <>
-           
                 <li className="movie__item" >
                   
                     {/* <div className="movie__item-background" style={backgroundImgStyle}> */}
@@ -66,28 +66,22 @@ const Movie = ({movie}) => {
                         {/* <div className="movie__item-info"> */}
                             <div className="movie__item-details">
                                 <div className="movie__item-details__1">
-                                    <h3 className="movie__title"> {movie.title} </h3>
-                                    <p className="movie__duration"> {movie.release_date} </p>
+                                    <h3 className="movie__item__title"> {selectedMovie.title.length >= 15 ? movie.title.substring(0,15) + "...": movie.title} </h3>
+                                    <p className="movie__item__date"> {selectedMovie.release_date} </p>
                                 </div>
                                
                                 <div className="movie__item-details__2">
-                                    <p class="movie__item__runtime"> {selectedMovie.runtime} mins </p>
-                                    <p className="movie__item__genres"> {selectedMovie.genres?.length >= 1 ? getGenreNames(selectedMovie.genres) : ""}  </p>   
+                                    <p className="movie__item__runtime"> {selectedMovie.runtime} mins </p>
+                                    <p className="movie__item__genres"> {getGenreNames(selectedMovie.genres).length >= 20 ? getGenreNames(selectedMovie.genres).substring(0,20) + "..." : getGenreNames(selectedMovie.genres)}  </p>   
                                 </div>
-                                {/* <p class="ticket__current-price">$28.00</p>
-                                <p class="ticket__old-price">$44.99</p> */}
-
-                                {/* <div className="movie__item-details__3">
-                                    <p className="movie__description"> {movie.overview}  </p>
-                                    <button class="movie__watch-btn">Watch Now</button>
-                                </div> */}
+                               
 
                             </div>
                         {/* </div> */}
                     </div>
                     <div className="movie__item-details__3">
-                        <p className="movie__description"> {movie.overview}  </p>
-                        <button class="movie__watch-btn">Watch Now</button>
+                        <p className="movie__item__description"> {selectedMovie.overview.length > 100 ? selectedMovie.overview.substring(0,100) + "..." : selectedMovie.overview}  </p>
+                        <button class="movie__item__watch-btn">Watch Now</button>
                     </div>
 
 
@@ -96,6 +90,7 @@ const Movie = ({movie}) => {
                     <div className="movie__social">
                     
                     </div>
+                    
                 </li>
      
 

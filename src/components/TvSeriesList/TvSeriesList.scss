@@ -1,0 +1,39 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.shows__container {
+  
+    padding: 1rem;
+
+    @include tablet {
+        padding: 0rem 2rem;
+    }
+
+    @include desktop {
+        // display: flex;
+        // flex-wrap: wrap;
+        // width: 100%;
+        padding: 0rem 5rem;
+    }
+
+}
+
+.shows__list {
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    list-style: none;
+
+    @include tablet {
+        flex-direction: row;
+        justify-content: space-evenly;
+        gap: 4rem 0rem;
+        flex-wrap: wrap;
+        // width: 100%;
+    }
+}

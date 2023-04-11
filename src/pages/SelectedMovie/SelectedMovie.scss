@@ -3,8 +3,87 @@
 
 .selected__movie {
 
+    padding: 0rem 10rem;
+
+    display: flex;
+
+
+    &__rating {
+        margin-top: 1rem;
+        // border: red solid 1px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: center;
+
+        &-value {
+            color: white;
+            margin: auto;
+            margin-bottom: 1rem;
+            // border: blue solid 1px;
+        }
+    }
+
 
     &__title {
         color: white;
+        padding: 1rem;
     }
+    &__like {
+        color: white;
+        &:hover 
+        {
+            color: red;
+        }
+
+        &--liked {
+            color: red;
+        }
+        // background-color: red;
+    }
+
+    &__image-container {
+        width: 100%;
+        height: 400px;
+        display: flex;
+        justify-content: center;
+    }
+
+    &__image {
+        border-radius: 0.25rem;
+        height: 500px;
+    }
+
+    &-link {
+        display: flex;
+        justify-content: center;
+        // width: 5px;
+        // height: 100px;
+        // align-items: center;
+        // margin: auto;
+        // margin-top: 1rem;
+        border: yellow solid 1px; 
+
+        &__logo {
+            height: 2rem;
+            width: 2rem;
+        }
+    }
+
+    &__overview {
+        margin-top: 1rem;
+        color: white;
+    }
+}
+
+.similar__movies {
+
+    padding: 0rem 1rem 0rem 1rem;
+    &__title {
+        color: white;
+        margin-top: 2rem;
+
+    }
+
 }
