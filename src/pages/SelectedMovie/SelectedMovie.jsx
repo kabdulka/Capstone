@@ -10,6 +10,7 @@ import arrowLeft from "../../assets/Icons/arrow_back-24px.svg";
 import 'react-circular-progressbar/dist/styles.css';
 import ChangingProgressProvider from "../../utils/ChangingProgressProvider";
 // import ChangingProgressProvider from "./ChangingProgressProvider";
+// import { getGenreNames } from "../../components/Movie/Movie";
 
 import {
     CircularProgressbar,
@@ -69,20 +70,51 @@ const SelectedMovie = () => {
     getRecommendedMovies()
    }, [urlParams.movieId])
 
+   function getGenreNames(genres) {
+    let result = "";
+    genres.forEach((genre) => {
+        result += genre.name + ", "
+    })
+    
+    return result.substring(0, result.length-2);
+}
+
    const handleClick = () => {
     
         console.log("click")
         setMovieLiked(!movieLiked)
 
+        // axios
+        // .get(`http://localhost:5050/movies`)
+        // .then((response) => {
+        //     console.log(response)
+        // })
+        // .catch(err => {
+        //     console.log(`error in finding liked movies ${err}`)
+        // })
+
+        console.log((selectedMovie.id))
+        const likedMovie = {
+            id: selectedMovie.id,
+            overview: selectedMovie.overview,
+            title: selectedMovie.title,
+            release_date: selectedMovie.release_date,
+            poster_path: selectedMovie.poster_path,
+            backdrop_path: selectedMovie.backdrop_path,
+            vote_average: selectedMovie.vote_average,
+            genres: getGenreNames (selectedMovie.genres)
+        }
+
+        const url = `http://localhost:5050/movies`
         axios
-        .get(`http://localhost:5050/movies`)
-        .then((response) => {
-            console.log(response)
-        })
-        .catch(err => {
-            console.log(`error in finding liked movies ${err}`)
-        })
-        
+        .post(`http://localhost:5050/movies`, likedMovie)
+        .then((response => {
+            
+        })) 
+        .catch((err => {
+            console.log("Could not add new movie axios ", err)
+        }))       
+
    }
 
 
@@ -91,11 +123,7 @@ const SelectedMovie = () => {
         urlParams.movieId ?
 
         <>
-            {/* <div style={{ width: 200, height: 200 }}>
-                <CircularProgressbar value={value} maxValue={1} text={`${value * 100}%`} />;
-            </div> */}
-
-            {/* <Search></Search> */}
+            
             
             <section className="selected__movie"> 
 
@@ -103,7 +131,6 @@ const SelectedMovie = () => {
                 <img className="selected__movie-link__logo" src={arrowLeft} />
             </Link>
                 
-            {/* </div> */}
 
 
             <div className="selected__movie__wrapper">
@@ -116,7 +143,6 @@ const SelectedMovie = () => {
                 </div>
 
                 <p className="selected__movie__overview"> {selectedMovie.overview}  </p>
-                {/* <p className="selected__movie__overview"> {selectedMovie.} </p> */}
                 <div className="selected__movie-">
 
                 </div>
@@ -135,7 +161,6 @@ const SelectedMovie = () => {
                 /> 
             </div>
 
-                {/* <FontAwesomeIcon icon="fa-duotone fa-heart" /> */}
               
 
             </section>

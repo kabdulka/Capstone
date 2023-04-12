@@ -4,6 +4,16 @@ import "../Movie/Movie.scss"
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+
+export function getGenreNames(genres) {
+    let result = "";
+    genres.forEach((genre) => {
+        result += genre.name + ", "
+    })
+    
+    return result.substring(0, result.length-2);
+}
+
 const Movie = ({movie}) => {
 
     const apiKey = process.env.REACT_APP_API_KEY;
@@ -26,6 +36,8 @@ const Movie = ({movie}) => {
         
         return result.substring(0, result.length-2);
     }
+
+  
 
     const getMovieInfo = () => {
 

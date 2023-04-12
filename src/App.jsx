@@ -8,7 +8,7 @@ import Header from './components/Header/Header';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Search from './pages/Search/Search';
 import SelectedMovie from './pages/SelectedMovie/SelectedMovie';
-
+import WatchList from './pages/WatchList/WatchList';
 
 function App() {
 
@@ -34,6 +34,11 @@ function App() {
           <Route 
             path="/:movieId"
             element={<SelectedMovie />}
+          />
+
+          <Route 
+            path="/likedMovies"
+            element={<WatchList/>}
           />
 
         </Routes>
