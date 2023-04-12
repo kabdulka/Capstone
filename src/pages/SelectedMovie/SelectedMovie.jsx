@@ -73,6 +73,16 @@ const SelectedMovie = () => {
     
         console.log("click")
         setMovieLiked(!movieLiked)
+
+        axios
+        .get(`http://localhost:5050/movies`)
+        .then((response) => {
+            console.log(response)
+        })
+        .catch(err => {
+            console.log(`error in finding liked movies ${err}`)
+        })
+        
    }
 
 
@@ -106,6 +116,7 @@ const SelectedMovie = () => {
                 </div>
 
                 <p className="selected__movie__overview"> {selectedMovie.overview}  </p>
+                {/* <p className="selected__movie__overview"> {selectedMovie.} </p> */}
                 <div className="selected__movie-">
 
                 </div>
