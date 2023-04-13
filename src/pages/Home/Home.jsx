@@ -7,6 +7,7 @@ import Header
  from '../../components/Header/Header';
 import FeaturedMovies from '../../components/FeaturedMovies/FeaturedMovies';
 import NewMovies from '../../components/NewMovies/NewMovies';
+import RecommendedMovies from "../../components/RecommendedMovies/RecommendedMovies"
 
 const Home = () => {
 
@@ -61,6 +62,7 @@ const Home = () => {
           <Header />
           <FeaturedMovies featured={featuredMovies}/>
           <NewMovies />
+          <RecommendedMovies />
         </>
 
     );

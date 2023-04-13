@@ -2,15 +2,11 @@ import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "../SelectedMovie/SelectedMovie.scss"
 import axios from "axios";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { library } from "@fortawesome/fontawesome-svg-core";
 import { FaHeart } from "react-icons/fa";
 import MovieList from "../../components/MovieList/MovieList";
 import arrowLeft from "../../assets/Icons/arrow_back-24px.svg";
 import 'react-circular-progressbar/dist/styles.css';
 import ChangingProgressProvider from "../../utils/ChangingProgressProvider";
-// import ChangingProgressProvider from "./ChangingProgressProvider";
-// import { getGenreNames } from "../../components/Movie/Movie";
 
 import {
     CircularProgressbar,
@@ -26,6 +22,8 @@ const SelectedMovie = () => {
     const [movieLiked, setMovieLiked] = useState(false);
     const [recommendedMovies, setRecommendedMovies] = useState([]);
     const [populatiry, setPopulatiry] = useState(0);
+
+    console.log("movie id: ", selectedMovie.id)
 
     const getMovie = () => {
         
@@ -84,15 +82,6 @@ const SelectedMovie = () => {
         console.log("click")
         setMovieLiked(!movieLiked)
 
-        // axios
-        // .get(`http://localhost:5050/movies`)
-        // .then((response) => {
-        //     console.log(response)
-        // })
-        // .catch(err => {
-        //     console.log(`error in finding liked movies ${err}`)
-        // })
-
         console.log((selectedMovie.id))
         const likedMovie = {
             id: selectedMovie.id,
@@ -113,6 +102,7 @@ const SelectedMovie = () => {
         })) 
         .catch((err => {
             console.log("Could not add new movie axios ", err)
+            alert("Movie already liked")
         }))       
 
    }
@@ -124,21 +114,16 @@ const SelectedMovie = () => {
 
         <>
             
-            
-            <section className="selected__movie"> 
-
             <Link className="selected__movie-link" to="/">
                 <img className="selected__movie-link__logo" src={arrowLeft} />
             </Link>
-                
-
+            <section className="selected__movie"> 
 
             <div className="selected__movie__wrapper">
           
                 <h1 className="selected__movie__title"> {selectedMovie.title} </h1>
            
                 <div className="selected__movie__image-container" style={backgroundImgStyle}>
-                    {/* <img className="selected__movie__image" src={"https://image.tmdb.org/t/p/w500/"+selectedMovie.poster_path} /> */}
 
                 </div>
 
@@ -161,13 +146,11 @@ const SelectedMovie = () => {
                 /> 
             </div>
 
-              
-
             </section>
 
             <section className="similar__movies">
                 <h2 className="similar__movies__title"> Related movies </h2>
-                <MovieList movies={recommendedMovies}/>
+                <MovieList isLiked={false} movies={recommendedMovies}/>
             </section>
      
         </>

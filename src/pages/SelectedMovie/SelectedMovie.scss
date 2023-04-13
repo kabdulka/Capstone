@@ -3,7 +3,16 @@
 
 .selected__movie {
 
-    padding: 0rem 10rem;
+
+    padding: 0rem 1rem;
+
+    @include tablet {
+        padding: 0rem 4rem;
+    }
+    @include desktop {
+        
+        padding: 0rem 10rem;
+    }
 
     display: flex;
 
@@ -45,25 +54,29 @@
 
     &__image-container {
         width: 100%;
-        height: 400px;
+        height: 200px;
+        object-fit: cover;
+        aspect-ratio: 9/16;
         display: flex;
         justify-content: center;
+
+        @include tablet {
+            height: 400px;
+
+        }
+
+        @include desktop {
+            height: 800;
+        }
     }
 
     &__image {
         border-radius: 0.25rem;
-        height: 500px;
+        // height: 500px;
     }
 
     &-link {
-        display: flex;
-        justify-content: center;
-        // width: 5px;
-        // height: 100px;
-        // align-items: center;
-        // margin: auto;
-        // margin-top: 1rem;
-        border: yellow solid 1px; 
+        display: flex; 
 
         &__logo {
             height: 2rem;

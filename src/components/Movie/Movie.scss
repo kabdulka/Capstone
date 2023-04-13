@@ -105,6 +105,7 @@
     }
 
     &__watch-btn {
+        border-radius: 0.25rem;
         width: 100%;
         padding: 0.5rem 1rem 0.5rem 1rem;
         background: #d9d8c7;
@@ -115,12 +116,43 @@
         &:hover {
             color: white;
             background-color: #F24444;
-        }
+        } 
+    }
+    
+    &__remove--active {
         
+
+    }
+
+    &__remove--inactive {
+        display: none;
+
+    }
+
+}
+
+.movie__item__remove-icon {
+    // display: none;
+}
+
+.movie__item__remove-icon--inactive {
+    display: none;
+}
+
+.movie__item__remove--active {
+    &-icon {
+        // display: none;
+        cursor: pointer;
+    }
+    &-icon--active {
+        // cursor: pointer;
     }
 }
 
+.movie__item__remove--inactive {
+    display: none;
 
+}
 
 
 

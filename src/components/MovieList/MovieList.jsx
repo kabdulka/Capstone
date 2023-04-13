@@ -2,9 +2,9 @@ import Movie from "../Movie/Movie";
 import "../MovieList/MovieList.scss";
 import uuid from 'react-uuid';
 
-const MovieList = ({movies}) => {
+const MovieList = ({movies, isLiked, handleMovieDelete}) => {
 
-    console.log("movies are: ")
+    console.log("movies are: ", isLiked)
     console.log(movies)
 
     return (
@@ -15,8 +15,10 @@ const MovieList = ({movies}) => {
 
                     {movies?.map(movie => 
                         <Movie
+                            isLiked={isLiked}
                             key={uuid()}
                             movie={movie}
+                            handleMovieDelete={handleMovieDelete}
                         />
                     )}
 
